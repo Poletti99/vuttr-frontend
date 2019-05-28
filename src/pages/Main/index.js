@@ -6,7 +6,7 @@ import {
   Subtitle,
   ActionContainer,
   SearchContainer,
-  ToolsList,
+  ToolsList
 } from './styles';
 
 import api from '../../services/api';
@@ -14,9 +14,9 @@ import api from '../../services/api';
 import Tool from '../../components/Tool';
 import AddToolModal from '../../components/AddToolModal';
 
-function Main() {
+export default function Main() {
   const [tools, setTools] = useState([]);
-  const [modalOpen, setModalOpen] = useState(true);
+  const [addModalOpen, setAddModalOpen] = useState(false);
 
   useEffect(function() {
     api.get('tools').then(resp => {
@@ -24,12 +24,8 @@ function Main() {
     });
   }, []);
 
-  function onOpenModal() {
-    setModalOpen(true);
-  }
-
-  function onCloseModal() {
-    setModalOpen(false);
+  function toglleAddModal() {
+    setAddModalOpen(!addModalOpen);
   }
 
   function handleDelete(id) {
@@ -51,13 +47,15 @@ function Main() {
       setTools([...tools, resp.data]);
     });
   }
+
   return (
     <Container>
       <AddToolModal
-        onClose={onCloseModal}
-        open={modalOpen}
+        onClose={toglleAddModal}
+        open={addModalOpen}
         handleSubmit={handleSubmit}
       />
+
       <Title>VUTTR</Title>
       <Subtitle>Very Useful Tools to Remember</Subtitle>
       <ActionContainer>
@@ -65,7 +63,7 @@ function Main() {
           <input type="text" />
           <input type="checkbox" />
         </SearchContainer>
-        <button onClick={onOpenModal}>+ Add</button>
+        <button onClick={toglleAddModal}>+ Add</button>
       </ActionContainer>
 
       <ToolsList>
@@ -76,5 +74,3 @@ function Main() {
     </Container>
   );
 }
-
-export default Main;
