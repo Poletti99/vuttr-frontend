@@ -68,7 +68,7 @@ export default function Main() {
 
   function handleSearch(text) {
     api.get(`/tools?${searchInTags ? 'tags_like' : 'q'}=${text}`).then(resp => {
-      alert(resp.data);
+      setTools(resp.data);
     });
   }
 
