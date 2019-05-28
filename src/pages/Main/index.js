@@ -17,6 +17,8 @@ import AddToolModal from '../../components/AddToolModal';
 export default function Main() {
   const [tools, setTools] = useState([]);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [searchInTags, setSearchInTags] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(function() {
     api.get('tools').then(resp => {
@@ -26,6 +28,10 @@ export default function Main() {
 
   function toglleAddModal() {
     setAddModalOpen(!addModalOpen);
+  }
+
+  function toglleCheckbox() {
+    setSearchInTags(!searchInTags);
   }
 
   function handleDelete(id) {
@@ -48,6 +54,24 @@ export default function Main() {
     });
   }
 
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      handleSearch(searchText);
+    }
+  }
+
+  function handleChange({ target: { value } }) {
+    setSearchText(value);
+  }
+
+  function handleSearch(text) {
+    api.get(`/tools?${searchInTags ? 'tags_like' : 'q'}=${text}`).then(resp => {
+      alert(resp.data);
+    });
+  }
+
   return (
     <Container>
       <AddToolModal
@@ -60,8 +84,18 @@ export default function Main() {
       <Subtitle>Very Useful Tools to Remember</Subtitle>
       <ActionContainer>
         <SearchContainer>
-          <input type="text" />
-          <input type="checkbox" />
+          <input
+            type="text"
+            onChange={handleChange}
+            value={searchText}
+            onKeyDown={handleKeyDown}
+          />
+          <input
+            type="checkbox"
+            onChange={toglleCheckbox}
+            checked={searchInTags}
+          />
+          search in tags only
         </SearchContainer>
         <button onClick={toglleAddModal}>+ Add</button>
       </ActionContainer>
