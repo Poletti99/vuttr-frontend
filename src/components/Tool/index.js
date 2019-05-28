@@ -9,7 +9,7 @@ function Tool({ title, link, description, tags, id, handleDelete }) {
         <button onClick={() => handleDelete(id)}>X Remover</button>
       </TitleContainer>
       <Description>{description}</Description>
-      <Tags>{tags.join(' #')}</Tags>
+      <Tags>{tags}</Tags>
     </Container>
   );
 }

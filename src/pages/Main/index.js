@@ -46,9 +46,18 @@ function Main() {
       });
   }
 
+  function handleSubmit(data) {
+    api.post('/tools', data).then(resp => {
+      setTools([...tools, resp.data]);
+    });
+  }
   return (
     <Container>
-      <AddToolModal onClose={onCloseModal} open={modalOpen} />
+      <AddToolModal
+        onClose={onCloseModal}
+        open={modalOpen}
+        handleSubmit={handleSubmit}
+      />
       <Title>VUTTR</Title>
       <Subtitle>Very Useful Tools to Remember</Subtitle>
       <ActionContainer>
