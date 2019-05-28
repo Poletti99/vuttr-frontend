@@ -12,15 +12,25 @@ import {
 import api from '../../services/api';
 
 import Tool from '../../components/Tool';
+import AddToolModal from '../../components/AddToolModal';
 
 function Main() {
   const [tools, setTools] = useState([]);
+  const [modalOpen, setModalOpen] = useState(true);
 
   useEffect(function() {
     api.get('tools').then(resp => {
       setTools(resp.data);
     });
   }, []);
+
+  function onOpenModal() {
+    setModalOpen(true);
+  }
+
+  function onCloseModal() {
+    setModalOpen(false);
+  }
 
   function handleDelete(id) {
     api
@@ -38,6 +48,7 @@ function Main() {
 
   return (
     <Container>
+      <AddToolModal onClose={onCloseModal} open={modalOpen} />
       <Title>VUTTR</Title>
       <Subtitle>Very Useful Tools to Remember</Subtitle>
       <ActionContainer>
@@ -45,7 +56,7 @@ function Main() {
           <input type="text" />
           <input type="checkbox" />
         </SearchContainer>
-        <button>+ Add</button>
+        <button onClick={onOpenModal}>+ Add</button>
       </ActionContainer>
 
       <ToolsList>
