@@ -6,6 +6,7 @@ import {
   Subtitle,
   ActionContainer,
   SearchContainer,
+  CheckboxContainer,
   ToolsList
 } from './styles';
 
@@ -90,12 +91,14 @@ export default function Main() {
             value={searchText}
             onKeyDown={handleKeyDown}
           />
-          <input
-            type="checkbox"
-            onChange={toglleCheckbox}
-            checked={searchInTags}
-          />
-          search in tags only
+          <CheckboxContainer>
+            <input
+              type="checkbox"
+              onChange={toglleCheckbox}
+              checked={searchInTags}
+            />
+            search in tags only
+          </CheckboxContainer>
         </SearchContainer>
         <button onClick={toglleAddModal}>+ Add</button>
       </ActionContainer>
