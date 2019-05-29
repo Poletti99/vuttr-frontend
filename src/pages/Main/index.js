@@ -7,8 +7,10 @@ import {
   ActionContainer,
   SearchContainer,
   CheckboxContainer,
-  ToolsList
+  ToolsList,
 } from './styles';
+
+import SearchIcon from '../../assets/images/Icon-Search-2px.svg';
 
 import api from '../../services/api';
 
@@ -85,6 +87,7 @@ export default function Main() {
       <Subtitle>Very Useful Tools to Remember</Subtitle>
       <ActionContainer>
         <SearchContainer>
+          <img src={SearchIcon} alt="Search Icon" />
           <input
             type="text"
             onChange={handleChange}
@@ -96,8 +99,9 @@ export default function Main() {
               type="checkbox"
               onChange={toglleCheckbox}
               checked={searchInTags}
+              id="tag-checkbox"
             />
-            search in tags only
+            <label htmlFor="tag-checkbox">search in tags only</label>
           </CheckboxContainer>
         </SearchContainer>
         <button onClick={toglleAddModal}>+ Add</button>
