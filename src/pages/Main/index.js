@@ -53,6 +53,7 @@ export default function Main() {
   }
 
   function handleSubmit(data) {
+    data.tags = data.tags.split(' ');
     api.post('/tools', data).then(resp => {
       setTools([...tools, resp.data]);
       toglleAddModal();

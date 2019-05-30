@@ -15,7 +15,7 @@ export default function DeleteToolModal({
   return (
     <Modal open={open} onClose={onClose}>
       <ModalBody>
-        <Title>X Remove Tool</Title>
+        <Title>Remove Tool</Title>
         <p>
           Tem certeza que deseja remover <strong>{toolTitle}</strong>?
         </p>

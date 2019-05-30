@@ -4,7 +4,8 @@ import {
   TitleContainer,
   Title,
   Description,
-  Tags,
+  TagsContainer,
+  Tag,
   RemoveButton,
 } from './styles';
 import DeleteToolModal from '../DeleteToolModal';
@@ -45,7 +46,11 @@ export default function ToolItem({
         </RemoveButton>
       </TitleContainer>
       <Description>{description}</Description>
-      <Tags>{tags}</Tags>
+      <TagsContainer>
+        {tags.map(tag => (
+          <Tag key={tag}>#{tag}</Tag>
+        ))}
+      </TagsContainer>
     </Container>
   );
 }

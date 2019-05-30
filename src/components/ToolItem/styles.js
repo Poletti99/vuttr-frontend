@@ -22,8 +22,22 @@ export const Title = styled.a`
   font-size: 20px;
 `;
 
-export const Tags = styled.div`
+export const TagsContainer = styled.div`
+  padding-top: 10px;
+
+  & > :first-child {
+    margin-left: 0px;
+  }
+`;
+
+export const Tag = styled.small`
+  font-size: 16px;
   font-weight: bold;
+  padding: 5px;
+  background: #ebeaed;
+  border-radius: 4px;
+  border: none;
+  margin: 5px;
 `;
 
 export const RemoveButton = styled.button`
