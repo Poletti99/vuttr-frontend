@@ -19,6 +19,8 @@ export const TitleContainer = styled.div`
 export const Description = styled.p``;
 
 export const Title = styled.a`
+  text-decoration: none;
+  color: #365df0;
   font-size: 20px;
 `;
 
