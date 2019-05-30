@@ -55,6 +55,7 @@ export default function Main() {
   function handleSubmit(data) {
     api.post('/tools', data).then(resp => {
       setTools([...tools, resp.data]);
+      toglleAddModal();
     });
   }
 
@@ -107,7 +108,6 @@ export default function Main() {
           </CheckboxContainer>
         </SearchContainer>
         <Button onClick={toglleAddModal} width="200px" text="+ Add" />
-        {/* <button onClick={toglleAddModal}>+ Add</button> */}
       </ActionContainer>
 
       <ToolsList>
