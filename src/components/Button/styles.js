@@ -6,9 +6,10 @@ export const StyledButton = styled.button`
   border-radius: 4px;
   background: #365df0;
   border: none;
-  font-size: 20px;
+  font-size: ${props => props.fontSize};
   font-weight: bold;
   color: #fff;
+  padding: 0px 5px;
 
   &:hover {
     background: #2f55cc;

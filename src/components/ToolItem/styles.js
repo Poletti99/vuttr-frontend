@@ -26,7 +26,7 @@ export const Tags = styled.div`
   font-weight: bold;
 `;
 
-export const Button = styled.button`
+export const RemoveButton = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +35,15 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: #f95e5a;
+  color: #365df0;
+
+  &:hover {
+    color: #2f55cc;
+  }
+
+  &:active {
+    color: #244aa8;
+  }
 
   img {
     max-width: 12px;

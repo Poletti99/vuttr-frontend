@@ -5,7 +5,7 @@ import {
   Title,
   Description,
   Tags,
-  Button,
+  RemoveButton,
 } from './styles';
 import DeleteToolModal from '../DeleteToolModal';
 import DeleteIcon from '../../assets/images/Icon-Close-2px.svg';
@@ -39,10 +39,10 @@ export default function ToolItem({
       <TitleContainer>
         <Title href={link}>{title}</Title>
 
-        <Button onClick={onOpenModal}>
+        <RemoveButton onClick={onOpenModal}>
           <img src={DeleteIcon} alt="Delete Icon" />
           Remover
-        </Button>
+        </RemoveButton>
       </TitleContainer>
       <Description>{description}</Description>
       <Tags>{tags}</Tags>

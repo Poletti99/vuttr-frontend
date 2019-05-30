@@ -73,6 +73,8 @@ export const CheckboxContainer = styled.div`
 
   & > input {
     margin: 3px;
+    height: 20px;
+    width: 20px;
   }
 `;
 

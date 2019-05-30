@@ -2,21 +2,33 @@ import React from 'react';
 
 import Modal from 'react-responsive-modal';
 
+import Button from '../Button';
+
+import { Title, ModalBody } from './styles';
+
 export default function DeleteToolModal({
   open,
   onClose,
   toolTitle,
-  handleDelete
+  handleDelete,
 }) {
   return (
     <Modal open={open} onClose={onClose}>
-      <h1>X Remove Tool</h1>
-      <p>
-        Tem certeza que deseja remover <strong>{toolTitle}</strong>?
-      </p>
+      <ModalBody>
+        <Title>X Remove Tool</Title>
+        <p>
+          Tem certeza que deseja remover <strong>{toolTitle}</strong>?
+        </p>
 
-      <button onClick={onClose}>Cancelar</button>
-      <button onClick={handleDelete}>Sim, remover</button>
+        <div>
+          <Button text={'Cancelar'} onClick={onClose} fontSize="16px" />
+          <Button
+            text={'Sim, remover'}
+            onClick={handleDelete}
+            fontSize="16px"
+          />
+        </div>
+      </ModalBody>
     </Modal>
   );
 }
