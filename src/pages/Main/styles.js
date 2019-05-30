@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  padding-top: 50px;
 `;
 
 export const Title = styled.h1`

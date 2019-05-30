@@ -14,8 +14,9 @@ import SearchIcon from '../../assets/images/Icon-Search-2px.svg';
 
 import api from '../../services/api';
 
-import Tool from '../../components/Tool';
+import ToolItem from '../../components/ToolItem';
 import AddToolModal from '../../components/AddToolModal';
+import Button from '../../components/Button';
 
 export default function Main() {
   const [tools, setTools] = useState([]);
@@ -93,6 +94,7 @@ export default function Main() {
             onChange={handleChange}
             value={searchText}
             onKeyDown={handleKeyDown}
+            placeholder={searchInTags ? 'Search in Tags Only' : 'Search'}
           />
           <CheckboxContainer>
             <input
@@ -104,12 +106,13 @@ export default function Main() {
             <label htmlFor="tag-checkbox">search in tags only</label>
           </CheckboxContainer>
         </SearchContainer>
-        <button onClick={toglleAddModal}>+ Add</button>
+        <Button onClick={toglleAddModal} width="200px" text="+ Add" />
+        {/* <button onClick={toglleAddModal}>+ Add</button> */}
       </ActionContainer>
 
       <ToolsList>
         {tools.map(tool => (
-          <Tool key={tool.id} handleDelete={handleDelete} {...tool} />
+          <ToolItem key={tool.id} handleDelete={handleDelete} {...tool} />
         ))}
       </ToolsList>
     </Container>

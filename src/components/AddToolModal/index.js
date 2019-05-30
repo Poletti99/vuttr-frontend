@@ -1,8 +1,11 @@
 import React from 'react';
 
 import Modal from 'react-responsive-modal';
-import { Form, Input } from '@rocketseat/unform';
+import { Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+
+import { AddForm } from './styles';
+import Button from '../Button';
 
 const schema = Yup.object().shape({
   title: Yup.string().required('Este campo não pode estar vazio'),
@@ -10,20 +13,31 @@ const schema = Yup.object().shape({
   description: Yup.string().required('Este campo não pode estar vazio'),
   tags: Yup.string().required('Este campo não pode estar vazio'),
 });
-// import { Form, InputContainer } from './styles';
 
 export default function AddToolModal({ open, onClose, handleSubmit }) {
   return (
     <Modal open={open} onClose={onClose}>
-      + Add New Tool
-      <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="title" />
-        <Input name="link" />
-        <Input name="description" />
-        <Input name="tags" />
-
-        <button type="submit">Add Tool</button>
-      </Form>
+      <AddForm schema={schema} onSubmit={handleSubmit}>
+        + Add New Tool
+        <label htmlFor="name">Tool Name</label>
+        <Input name="title" id="name" placeholder="Type the Tool Name" />
+        <label htmlFor="link">Tool Link</label>
+        <Input name="link" id="link" placeholder="Type the Tool Link" />
+        <label htmlFor="description">Tool Description</label>
+        <Input
+          multiline
+          name="description"
+          id="description"
+          placeholder="Type the Tool Description"
+        />
+        <label htmlFor="tags">Tool Tags</label>
+        <Input
+          name="tags"
+          id="tags"
+          placeholder="Type the Tool Tags separeted by space"
+        />
+        <Button text="Add Tool" type="submit" />
+      </AddForm>
     </Modal>
   );
 }
