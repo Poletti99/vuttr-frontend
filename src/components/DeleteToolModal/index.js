@@ -13,7 +13,7 @@ export default function DeleteToolModal({
   handleDelete,
 }) {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} center>
       <ModalBody>
         <Title>Remove Tool</Title>
         <p>

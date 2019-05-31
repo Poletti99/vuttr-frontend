@@ -16,7 +16,7 @@ const schema = Yup.object().shape({
 
 export default function AddToolModal({ open, onClose, handleSubmit }) {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} center>
       <AddForm schema={schema} onSubmit={handleSubmit}>
         + Add New Tool
         <label htmlFor="name">Tool Name</label>
