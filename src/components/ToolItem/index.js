@@ -9,7 +9,7 @@ import {
   RemoveButton,
 } from './styles';
 import DeleteToolModal from '../DeleteToolModal';
-import DeleteIcon from '../../assets/images/Icon-Close-2px.svg';
+import DeleteIcon from '../../assets/images/Icon-Delete-2px.svg';
 
 export default function ToolItem({
   title,
